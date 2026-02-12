@@ -2,6 +2,7 @@ package pe.edu.idat.app_componentes
 
 import android.os.Bundle
 import android.view.View
+import android.widget.ArrayAdapter
 import android.widget.CheckBox
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -25,6 +26,12 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
+        }
+        ArrayAdapter.createFromResource(this, R.array.estado_civil_array,
+            android.R.layout.simple_spinner_item).also {
+                adapter ->
+                adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+            binding.spestadocivil.adapter = adapter
         }
         binding.cbfutbol.setOnClickListener(this)
         binding.cbmusica.setOnClickListener(this)
